@@ -26,7 +26,9 @@ export class UsMapComponent implements OnInit {
     g.attr('class', 'map');
 
     console.log("outside json calling1");
-
+    let tooltipDiv = d3.select("div.tooltip")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
 
     d3.json("assets/maps/USA.json")
       .then(function (topology:any) {
@@ -55,14 +57,29 @@ export class UsMapComponent implements OnInit {
             return projection(d.coords)[1];
           })
           .attr("r", "8px")
-          .attr("fill", "red");
+          .attr("fill", "red")
+          .on("mouseover", function(event, data) {
+            console.log("data", data);
+            tooltipDiv.transition()
+              .duration(200)
+              .style("opacity", .9);
+            tooltipDiv.html(data.location)
+              .style("left", (event.pageX) + "px")
+              .style("top", (event.pageY - 28) + "px");
+          })
+          .on("mouseout", function(d) {
+            tooltipDiv.transition()
+              .duration(500)
+              .style("opacity", 0);
+          });
         console.log("LOADED 1 point - YAY");
       });
 
 
   }
   updateThreatFilters(event) {
-
+    console.log(event);
+    console.log("SELECTED", this.selectedValues);
   }
 
 }
