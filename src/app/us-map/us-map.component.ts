@@ -9,6 +9,7 @@ import * as t from 'topojson';
 })
 export class UsMapComponent implements OnInit {
   selectedValues: any[] = [];
+  private countryData: any;
   constructor() { }
 
   ngOnInit(): void {
@@ -30,7 +31,9 @@ export class UsMapComponent implements OnInit {
       .attr("class", "tooltip")
       .style("opacity", 0);
 
-    d3.json("assets/maps/USA.json")
+    this.countryData =  d3.json("assets/maps/USA.json");
+
+    this.countryData
       .then(function (topology:any) {
         g.selectAll('path')
           .data(t.feature(topology, topology.objects.units).features)
