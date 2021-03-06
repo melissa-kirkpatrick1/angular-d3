@@ -1,4 +1,19 @@
+.left {
+  float: left;
+  width: 20%;
+}
+.right {
+  float: right;
+  width: 80%;
+}
 .map {
   fill:lightgrey;
+  stroke:black;
+}
+
+
+
+.airport {
+  fill:blue;
   stroke:black;
 }

@@ -8,56 +8,61 @@ import * as t from 'topojson';
   styleUrls: ['./us-map.component.css']
 })
 export class UsMapComponent implements OnInit {
-
+  selectedValues: any[] = [];
   constructor() { }
 
   ngOnInit(): void {
+    let width = 900;
+    let height = 600;
 
-    let width = 1100;
-    let height = 700;
+    let projection = d3.geoAlbersUsa();
 
-    let svg = d3.select('body').append('svg')
+    let svg = d3.select('div.us-map').append('svg')
       .attr('width', width)
       .attr('height', height);
+    let path = d3.geoPath()
+      .projection(projection);
     let g = svg.append('g');
     g.attr('class', 'map');
 
-    let scale = d3.scaleSqrt().domain([1,56]).range([.1, 1]);
-    let color = d3.scaleSequential(d =>
-      d3.interpolateReds(scale(d))
-    );
+    console.log("outside json calling1");
+
 
     d3.json("assets/maps/USA.json")
-      .then(function (topology : any) {
-        let projection = d3.geoAlbersUsa().fitSize([width,height],t.feature(topology, topology.objects.units));
-        let path = d3.geoPath().projection(projection);
-        // <---- Renamed it from data to topology
-        console.log("------>", topology.feature);
+      .then(function (topology:any) {
         g.selectAll('path')
           .data(t.feature(topology, topology.objects.units).features)
           .enter()
           .append('path')
           .attr('d', path)
           .attr("fill", function (d ) {
-            return "red"
+            return "lightgrey"
           });
         console.log("ending json calling1");
+        let aa = [-122.490402, 37.786453];
+        let bb = [-122.389809, 37.72728];
+        let sampleData = {"location" : "test", "coords" : aa};
+        let dataArr : any[] = [];
+        dataArr.push(sampleData);
+        svg.selectAll("circle")
+          .data(dataArr).enter()
+          .append("circle")
+          .attr("cx", function (d:any) {
+            console.log(d);
+            return projection(d.coords)[0];
+          })
+          .attr("cy", function (d: any) {
+            return projection(d.coords)[1];
+          })
+          .attr("r", "8px")
+          .attr("fill", "red");
+        console.log("LOADED 1 point - YAY");
+      });
 
-      });
-    var threatMap = new Map();
-    d3.csv("assets/maps/usa_threats.csv")
-      .then(function (d : any) {
-        console.log("D",d);
-        d.forEach(state => {
-          threatMap.set(state.fips, +state.threats);
-        });
-        g.selectAll('path')
-          .attr('fill', function(code :any) {
-            console.log("CODE FIPS", code)
-            return color(threatMap.get(code.properties.fips));
-          });
-        console.log("Threat map", threatMap);
-      });
+
+  }
+  updateThreatFilters(event) {
+
   }
 
 }
