@@ -29,3 +29,7 @@ div.tooltip {
   border-radius: 8px;
   pointer-events: none;
 }
+.point_on_map {
+  position: fixed;
+  z-index: 999;
+}
