@@ -11,12 +11,6 @@
   stroke:black;
 }
 
-
-
-.airport {
-  fill:blue;
-  stroke:black;
-}
 div.tooltip {
   position: absolute;
   text-align: center;
@@ -29,7 +23,7 @@ div.tooltip {
   border-radius: 8px;
   pointer-events: none;
 }
-.point_on_map {
-  position: fixed;
-  z-index: 999;
+.hotel {
+  r: 5px;
+  fill: red;
 }

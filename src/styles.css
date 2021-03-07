@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/material-icons/css/material-icons.min.css';
 
 .map {
-  fill:orange;
   stroke:black;
 }
 
@@ -9,3 +9,11 @@
   fill:blue;
   stroke:black;
 }
+.hotel {
+  /*r: 5px;*/
+  fill: red;
+  width: 50px;
+  height: 50px;
+  background-image: url(assets/images/hotel-1880.png);
+}
+

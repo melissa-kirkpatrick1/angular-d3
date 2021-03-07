@@ -21,7 +21,10 @@
     "@angular/router": "~11.2.4",
     "d3": "^6.5.0",
     "d3-geomap": "^3.3.0",
+    "favicons": "^6.2.1",
+    "material-icons": "^0.5.4",
     "primeng": "^11.3.0-rc.1",
+    "react-icons": "^4.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
