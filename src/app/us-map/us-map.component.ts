@@ -62,30 +62,16 @@ export class UsMapComponent implements OnInit {
     let bb = [-75.26660601124958,43.598241844086594];
     let cc = [-74.00712, 40.71455];
 
-    let sampleData = {"location" : "CA Somewhere", "coords" : aa};
-    let sampleData2 = {"location" : "Herndon", "coords" : bb};
-    let sampleData3 = {"location" : "New York", "coords" : cc};
+    let sampleData = {"location" : "CA Somewhere", "coords" : aa, "type" : "hotel"};
+    let sampleData2 = {"location" : "Herndon", "coords" : bb, "type" : "airport"};
+    let sampleData3 = {"location" : "New York", "coords" : cc, "type" : "hotel"};
     let dataArr : any[] = [];
     dataArr.push(sampleData);
     dataArr.push(sampleData2);
     dataArr.push(sampleData3);
 
     let height = 20, width=20;
-    var defs= g.append('defs')
-    defs.append('pattern')
-      .attr('id', 'hotel')
-      // .attr('patternUnits', 'userSpaceOnUse')
-      .attr('width', width)
-      .attr('height', height)
-      .attr("class","hotel")
-      .append('svg:image')
-      .attr('xlink:href', 'https://cdn0.iconfinder.com/data/icons/flat-round-system/512/android-128.png')
-      .attr("width", width)
-      .attr("height", height)
-      .attr("x", 0)
-      .attr("y", 0);
-
-
+    this.loadIconsForMap(g, width,height);
     g.selectAll("rects")
       .data(dataArr).enter()
       .append("rect")
@@ -103,7 +89,10 @@ export class UsMapComponent implements OnInit {
           return coords[1];
         }
       })
-      .attr("fill", "url(#hotel)")
+      .attr("fill", function(d) {
+        console.log("Data",d);
+        return "url(#"+d.type+")";
+      })
       .attr("stroke", "none")
       .on("mouseover", function(event, data) {
         tooltipDiv.transition()
@@ -117,7 +106,31 @@ export class UsMapComponent implements OnInit {
         tooltipDiv.transition()
           .duration(500)
           .style("opacity", 0);
-      });
+      }).on("click", function(event,data) {
+        console.log("CLICKED WITH D", data);
+    });
+  }
+
+  loadIconsForMap(g: any, width, height) {
+    var defs= g.append('defs')
+    let sampleIconData: any[] = [
+      {"id" : "hotel", "imageurl" : "assets/images/android-128.png" },
+      {"id" : "airport", "imageurl" : "assets/images/smile.png" }
+    ];
+
+    sampleIconData.forEach(icon => {
+      defs.append('pattern')
+        .attr('id', icon.id)
+        // .attr('patternUnits', 'userSpaceOnUse')
+        .attr('width', width)
+        .attr('height', height)
+        .append('svg:image')
+        .attr('xlink:href', icon.imageurl)
+        .attr("width", width)
+        .attr("height", height)
+        .attr("x", 0)
+        .attr("y", 0);
+    });
   }
 
 }
