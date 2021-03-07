@@ -9,7 +9,6 @@ import * as t from 'topojson';
 })
 export class UsMapComponent implements OnInit {
   selectedValues: any[] = [];
-  private countryData: any;
 
   constructor() { }
 
@@ -32,8 +31,7 @@ export class UsMapComponent implements OnInit {
       .attr("class", "tooltip")
       .style("opacity", 0);
 
-    this.countryData =  d3.json("assets/maps/USA.json");
-    this.countryData
+    d3.json("assets/maps/USA.json")
       .then(function (topology:any) {
         g.selectAll('path')
           .data(t.feature(topology, topology.objects.units).features)
@@ -43,43 +41,6 @@ export class UsMapComponent implements OnInit {
           .attr("fill", function (d ) {
             return "lightgrey"
           });
-        // console.log("ending json calling1");
-        // let aa =  [40.71455,-74.007124];
-        // let bb = [-122.389809, 37.72728];
-        // let sampleData = {"location" : "test", "coords" : aa};
-        // let dataArr : any[] = [];
-        // dataArr.push(sampleData);
-        // svg.selectAll("circle")
-        //   .data(dataArr).enter()
-        //   .append("circle")
-        //   .attr("cx", function (d:any) {
-        //     console.log(d);
-        //     console.log("D HERE",d);
-        //     console.log("COORDS 0",projection(d.coords)[0])
-        //     return projection(d.coords)[0];
-        //   })
-        //   .attr("cy", function (d: any) {
-        //     console.log("D HERE",d);
-        //     console.log("COORDS 1",projection(d.coords)[1])
-        //     return projection(d.coords)[1];
-        //   })
-        //   .attr("r", "8px")
-        //   .attr("fill", "red")
-        //   .on("mouseover", function(event, data) {
-        //     console.log("data", data);
-        //     tooltipDiv.transition()
-        //       .duration(200)
-        //       .style("opacity", .9);
-        //     tooltipDiv.html(data.location)
-        //       .style("left", (event.pageX) + "px")
-        //       .style("top", (event.pageY - 28) + "px");
-        //   })
-        //   .on("mouseout", function(d) {
-        //     tooltipDiv.transition()
-        //       .duration(500)
-        //       .style("opacity", 0);
-        //   });
-        console.log("LOADED 1 point - YAY");
       });
 
 
@@ -116,6 +77,7 @@ export class UsMapComponent implements OnInit {
       // .attr('patternUnits', 'userSpaceOnUse')
       .attr('width', width)
       .attr('height', height)
+      .attr("class","hotel")
       .append('svg:image')
       .attr('xlink:href', 'https://cdn0.iconfinder.com/data/icons/flat-round-system/512/android-128.png')
       .attr("width", width)
@@ -142,7 +104,7 @@ export class UsMapComponent implements OnInit {
         }
       })
       .attr("fill", "url(#hotel)")
-      .attr("stroke", "darkgrey")
+      .attr("stroke", "none")
       .on("mouseover", function(event, data) {
         tooltipDiv.transition()
           .duration(200)
@@ -156,7 +118,6 @@ export class UsMapComponent implements OnInit {
           .duration(500)
           .style("opacity", 0);
       });
-
   }
 
 }
