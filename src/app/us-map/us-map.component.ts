@@ -93,12 +93,6 @@ export class UsMapComponent implements OnInit {
     let svg = d3.select('div.us-map');
     let g = d3.select('g.map');
 
-    var myimage = svg.append('image')
-      .attr('xlink:href', 'http://lorempixel.com/200/200/')
-      .attr('width', 50)
-      .attr('height', 50)
-
-
     let tooltipDiv = d3.select("div.tooltip")
       .attr("class", "tooltip")
       .style("opacity", 0);
@@ -114,12 +108,27 @@ export class UsMapComponent implements OnInit {
     dataArr.push(sampleData);
     dataArr.push(sampleData2);
     dataArr.push(sampleData3);
-    let size=50;
+
+    let height = 20, width=20;
+    var defs= g.append('defs')
+    defs.append('pattern')
+      .attr('id', 'hotel')
+      // .attr('patternUnits', 'userSpaceOnUse')
+      .attr('width', width)
+      .attr('height', height)
+      .append('svg:image')
+      .attr('xlink:href', 'https://cdn0.iconfinder.com/data/icons/flat-round-system/512/android-128.png')
+      .attr("width", width)
+      .attr("height", height)
+      .attr("x", 0)
+      .attr("y", 0);
+
+
     g.selectAll("rects")
       .data(dataArr).enter()
       .append("rect")
-      .attr("width", size)
-      .attr("height", size)
+      .attr("width", width)
+      .attr("height", height)
       .attr("x", function (d:any) {
         var coords = projection(d.coords);
         if (coords) {
@@ -132,9 +141,8 @@ export class UsMapComponent implements OnInit {
           return coords[1];
         }
       })
-      .attr("class", "hotel")
-      // .attr("fill", "#bg")
-      // .attr("fill", "http://simpleicon.com/wp-content/uploads/smile.png")
+      .attr("fill", "url(#hotel)")
+      .attr("stroke", "darkgrey")
       .on("mouseover", function(event, data) {
         tooltipDiv.transition()
           .duration(200)
