@@ -1,7 +1,7 @@
 <div class="left">
-  <p-checkbox name="groupname" value="hotel" label="Hotel" [(ngModel)]="selectedValues" (onChange)="updateThreatFilters($event)"></p-checkbox>
+  <p-checkbox name="groupname" value="hotel" label="Hotel" [(ngModel)]="selectedValues" (onChange)="updateThreatFilters($event,'hotel')"></p-checkbox>
   <br/>
-  <p-checkbox name="groupname" value="airport" label="Airport" [(ngModel)]="selectedValues" (onChange)="updateThreatFilters($event)"></p-checkbox>
+  <p-checkbox name="groupname" value="airport" label="Airport" [(ngModel)]="selectedValues" (onChange)="updateThreatFilters($event,'airport')"></p-checkbox>
 </div>
 <div class="right">
   <div class="us-map"></div>

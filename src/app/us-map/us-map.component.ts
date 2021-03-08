@@ -9,6 +9,9 @@ import * as t from 'topojson';
 })
 export class UsMapComponent implements OnInit {
   selectedValues: any[] = [];
+  threatTypes: any[] = [];
+  private hotels: any[] = [];
+  private airports: any[] = [];
 
   constructor() { }
 
@@ -17,13 +20,13 @@ export class UsMapComponent implements OnInit {
     let height = 600;
 
     let projection = d3.geoAlbersUsa();
-
     let svg = d3.select('div.us-map').append('svg')
       .attr('width', width)
       .attr('height', height);
     let path = d3.geoPath()
       .projection(projection);
     let g = svg.append('g');
+    this.loadIconsForMap(g);
     g.attr('class', 'map');
 
     console.log("outside json calling1");
@@ -45,33 +48,59 @@ export class UsMapComponent implements OnInit {
 
 
   }
-  updateThreatFilters(event) {
-    console.log("Clicked event",this.selectedValues);
+  loadThreatTypes() {
+    this.threatTypes.push("hotel");
+    this.threatTypes.push("airport");
+  }
+  updateThreatFilters(event, type) {
+    let svg = d3.select('div.us-map');
+    let g = d3.select('g.map');
+
+    if (!event.checked) {
+      g.selectAll("rect." + type).remove();
+    } else {
+      switch (type) {
+        case 'hotel':
+          this.loadHotels();
+          break;
+        case 'airport':
+          this.loadAirports();
+          break;
+      }
+    }
+  }
+
+  loadHotels() {
+    let that = this;
+    if (this.hotels.length == 0) {
+      d3.csv("assets/maps/hotels.csv")
+        .then(function(data: any) {
+          data.forEach(hotel => {
+            let coords = [hotel.lon, hotel.lat];
+            let hotelData = {"location": hotel.hotel, "coords": coords, "type": "hotel"};
+            that.hotels.push(hotelData);
+          })
+          that.showData(that.hotels);
+        });
+    } else {
+      this.showData(this.hotels);
+    }
+  }
+
+  showData(dataArr: any) {
+    let svg = d3.select('div.us-map');
+    let g = d3.select('g.map');
+    console.log("HOTELS",this.hotels);
+
     let projection = d3.geoAlbersUsa();
     let path = d3.geoPath()
       .projection(projection);
-
-    let svg = d3.select('div.us-map');
-    let g = d3.select('g.map');
 
     let tooltipDiv = d3.select("div.tooltip")
       .attr("class", "tooltip")
       .style("opacity", 0);
 
-    let aa = [-122.490402, 37.786453];
-    let bb = [-75.26660601124958,43.598241844086594];
-    let cc = [-74.00712, 40.71455];
-
-    let sampleData = {"location" : "CA Somewhere", "coords" : aa, "type" : "hotel"};
-    let sampleData2 = {"location" : "Herndon", "coords" : bb, "type" : "airport"};
-    let sampleData3 = {"location" : "New York", "coords" : cc, "type" : "hotel"};
-    let dataArr : any[] = [];
-    dataArr.push(sampleData);
-    dataArr.push(sampleData2);
-    dataArr.push(sampleData3);
-
     let height = 20, width=20;
-    this.loadIconsForMap(g, width,height);
     g.selectAll("rects")
       .data(dataArr).enter()
       .append("rect")
@@ -89,12 +118,13 @@ export class UsMapComponent implements OnInit {
           return coords[1];
         }
       })
-      .attr("fill", function(d) {
-        console.log("Data",d);
+      .attr("fill", function(d: any) {
         return "url(#"+d.type+")";
-      })
+      }).attr("class", function(d: any) {
+      return d.type;
+    })
       .attr("stroke", "none")
-      .on("mouseover", function(event, data) {
+      .on("mouseover", function(event, data: any) {
         tooltipDiv.transition()
           .duration(200)
           .style("opacity", .9);
@@ -107,11 +137,28 @@ export class UsMapComponent implements OnInit {
           .duration(500)
           .style("opacity", 0);
       }).on("click", function(event,data) {
-        console.log("CLICKED WITH D", data);
+      console.log("CLICKED WITH D", data);
     });
   }
-
-  loadIconsForMap(g: any, width, height) {
+  loadAirports() {
+    let that = this;
+    if (this.airports.length == 0) {
+      d3.csv("assets/maps/airports.csv")
+        .then(function(data: any) {
+          console.log("AIRPORTS", data);
+          data.forEach(airport => {
+            let coords = [airport.lon, airport.lat];
+            let airportData = {"location": airport.airport, "coords": coords, "type": "airport"};
+            that.airports.push(airportData);
+          })
+          that.showData(that.airports);
+        });
+    } else {
+      this.showData(this.airports);
+    }
+  }
+  loadIconsForMap(g:any) {
+    let width = 20, height = 20;
     var defs= g.append('defs')
     let sampleIconData: any[] = [
       {"id" : "hotel", "imageurl" : "assets/images/android-128.png" },
