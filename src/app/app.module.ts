@@ -8,6 +8,10 @@ import { WorldMapComponent } from './world-map/world-map.component';
 import {CheckboxModule} from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {DialogModule} from 'primeng/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {PackedBubbleChartService} from './services/packed-bubble-chart.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,9 +23,11 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     BrowserModule,
     AppRoutingModule,
-    CheckboxModule
+    CheckboxModule,
+    DialogModule,
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [PackedBubbleChartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

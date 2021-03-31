@@ -2,8 +2,15 @@
   <p-checkbox name="groupname" value="hotel" label="Hotel" [(ngModel)]="selectedValues" (onChange)="updateThreatFilters($event,'hotel')"></p-checkbox>
   <br/>
   <p-checkbox name="groupname" value="airport" label="Airport" [(ngModel)]="selectedValues" (onChange)="updateThreatFilters($event,'airport')"></p-checkbox>
+  <div>
+    <a (click)="showDialog()">Click Me</a>
+  </div>
 </div>
 <div class="right">
   <div class="us-map"></div>
 </div>
 <div class="tooltip"></div>
+<p-dialog [(visible)]="showBubble">
+  <div id="chart" class="bubble-chart"></div>
+</p-dialog>
+

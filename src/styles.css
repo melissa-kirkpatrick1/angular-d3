@@ -5,3 +5,20 @@
   stroke:black;
 }
 
+.p-dialog {
+  display: flex;
+  flex-direction: column;
+  max-height: 90%;
+  position: relative;
+  transform: scale(1);
+  background-color: lightgrey;
+  width: 500px;
+}
+.p-dialog-header {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  background-color: darkgrey;
+  color: white;
+}

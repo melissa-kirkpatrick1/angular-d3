@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import * as t from 'topojson';
+import {PackedBubbleChartService} from '../services/packed-bubble-chart.service';
 
 @Component({
   selector: 'app-us-map',
@@ -10,16 +11,18 @@ import * as t from 'topojson';
 export class UsMapComponent implements OnInit {
   selectedValues: any[] = [];
   threatTypes: any[] = [];
+  showBubble: boolean = false;
   private hotels: any[] = [];
   private airports: any[] = [];
+  private centered;
 
-  constructor() { }
+  constructor( private packedBubbleChartService: PackedBubbleChartService) { }
 
   ngOnInit(): void {
-    let width = 900;
+    let width = 1000;
     let height = 600;
 
-    let projection = d3.geoAlbersUsa();
+    let projection = d3.geoMercator();
     let svg = d3.select('div.us-map').append('svg')
       .attr('width', width)
       .attr('height', height);
@@ -29,25 +32,121 @@ export class UsMapComponent implements OnInit {
     this.loadIconsForMap(g);
     g.attr('class', 'map');
 
-    console.log("outside json calling1");
     let tooltipDiv = d3.select("div.tooltip")
       .attr("class", "tooltip")
       .style("opacity", 0);
 
-    d3.json("assets/maps/USA.json")
+
+    let red = d3.rgb("red");
+    let darker = red.darker(0.5);
+
+    let lighter = red.brighter(0.5);
+    let scale = d3.scaleLinear().domain([1, 25])
+      .range([.1, 1]);
+    let color = d3.scaleSequential(d =>
+      d3.interpolateReds(scale(d)));
+
+    let that = this;
+    let borderList = [];
+
+    let map = new Map();
+    d3.csv("assets/maps/country-borders.csv")
+      .then(function (borders:any) {
+        d3.json("assets/maps/convert-to-iso.json").then(function (mappedCodes:any) {
+          borders.forEach(border => {
+            if (map.get(mappedCodes[border.country_code]) == null) {
+              map.set(mappedCodes[border.country_code],[]);
+            }
+            map.get(mappedCodes[border.country_code]).push(mappedCodes[border.country_border_code]);
+          });
+        });
+        console.log("map",map);
+      });
+
+
+    let borderMap = new Map();
+    d3.json("assets/maps/borders.json").then(function (borders:any) {
+      borders.forEach(border => {
+        borderMap.set(border.key, border.value);
+      });
+      console.log("border map",borderMap);
+    });
+
+    d3.json("assets/maps/countries.json")
       .then(function (topology:any) {
+        let list = [];
+        topology.objects.units.geometries.forEach(data => {
+          if (data.properties.iso3 == "MAR" ||
+            borderMap.get("MAR").indexOf(data.properties.iso3) >= 0) {
+            list.push(data);
+          }
+        });
+        topology.objects.units.geometries = list;
+        console.log("LIST",list);
         g.selectAll('path')
           .data(t.feature(topology, topology.objects.units).features)
           .enter()
           .append('path')
           .attr('d', path)
-          .attr("fill", function (d ) {
-            return "lightgrey"
-          });
+          .attr("class", function (d : any) {
+            if (d.properties.iso3 == "MAR") {
+              return "selectedCountry"
+            } else {
+              return "";
+            }
+          })
+          .attr("fill", function (d : any) {
+            if (d.properties.iso3 == "MAR") {
+              that.zoomTo(d, path, g, width, height);
+            }
+            if (d.properties.iso3 == "MAR") {
+              return "rgb(254,218,203)";
+            } else {
+              return "lightgrey";
+            }
+
+          })
+          .attr("opacity", function (d : any) {
+            if (d.properties.iso3 == "MAR") {
+              return "1";
+            } else {
+              return ".3";
+            }
+
+          })
+          .on("click", function (d, e) {
+            that.zoomTo(e, path, g, width, height);
+          })
+
+
       });
-
-
+    d3.json("assets/maps/MAR.json")
+      .then(function (states :any) {
+        // g.append("g")
+          // .attr("class", "boundary state hidden")
+          g.selectAll("boundary")
+          .data(t.feature(states, states.objects.units).features)
+          .enter().append("path")
+          .attr("fill","red")
+          .attr("d", path);
+      });
   }
+
+  zoomTo(d, path, g, width, height) {
+    // d is the feature to zoomTo
+    var x, y, k;
+    var centroid = path.centroid(d);
+    x = centroid[0];
+    y = centroid[1];
+    k = 7;
+    g.selectAll("path")
+      .classed("active", this.centered && function(d) { return d === this.centered; });
+    g.transition()
+      .duration(750)
+      .attr("transform", "translate(" + width / 2 + "," + height / 3 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+      .style("stroke-width", 1.5 / k + "px");
+  }
+
   loadThreatTypes() {
     this.threatTypes.push("hotel");
     this.threatTypes.push("airport");
@@ -90,9 +189,8 @@ export class UsMapComponent implements OnInit {
   showData(dataArr: any) {
     let svg = d3.select('div.us-map');
     let g = d3.select('g.map');
-    console.log("HOTELS",this.hotels);
 
-    let projection = d3.geoAlbersUsa();
+    let projection = d3.geoMercator();
     let path = d3.geoPath()
       .projection(projection);
 
@@ -137,7 +235,6 @@ export class UsMapComponent implements OnInit {
           .duration(500)
           .style("opacity", 0);
       }).on("click", function(event,data) {
-      console.log("CLICKED WITH D", data);
     });
   }
   loadAirports() {
@@ -145,7 +242,6 @@ export class UsMapComponent implements OnInit {
     if (this.airports.length == 0) {
       d3.csv("assets/maps/airports.csv")
         .then(function(data: any) {
-          console.log("AIRPORTS", data);
           data.forEach(airport => {
             let coords = [airport.lon, airport.lat];
             let airportData = {"location": airport.airport, "coords": coords, "type": "airport"};
@@ -179,5 +275,17 @@ export class UsMapComponent implements OnInit {
         .attr("y", 0);
     });
   }
+  showDialog () {
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+    const render = async () => {
+      this.showBubble = true;
+      await delay(50);
+      this.packedBubbleChartService.renderChart();
+    };
+
+    render();
+
+  }
+
 
 }

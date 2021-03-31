@@ -27,3 +27,10 @@ div.tooltip {
   r: 5px;
   fill: red;
 }
+.us-map {
+  border: 1px solid black;
+}
+.bubble-chart {
+  width: 700px;
+  height:500px;
+}

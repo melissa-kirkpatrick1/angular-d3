@@ -1,0 +1,1959 @@
+[
+    {
+        "key": "AND",
+        "value": [
+            "FRA",
+            "ESP"
+        ]
+    },
+    {
+        "key": "ARE",
+        "value": [
+            "OMN",
+            "SAU"
+        ]
+    },
+    {
+        "key": "AFG",
+        "value": [
+            "CHN",
+            "IRN",
+            "PAK",
+            "TJK",
+            "TKM",
+            "UZB"
+        ]
+    },
+    {
+        "key": "ATG",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "AIA",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "ALB",
+        "value": [
+            "GRC",
+            "MNE",
+            "MKD",
+            "SRB"
+        ]
+    },
+    {
+        "key": "ARM",
+        "value": [
+            "AZE",
+            "GEO",
+            "IRN",
+            "TUR"
+        ]
+    },
+    {
+        "key": "AGO",
+        "value": [
+            "COG",
+            "COD",
+            "NAM",
+            "ZMB"
+        ]
+    },
+    {
+        "key": "ATA",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "ARG",
+        "value": [
+            "BOL",
+            "BRA",
+            "CHL",
+            "PRY",
+            "URY"
+        ]
+    },
+    {
+        "key": "ASM",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "AUT",
+        "value": [
+            "CZE",
+            "DEU",
+            "HUN",
+            "ITA",
+            "LIE",
+            "SVK",
+            "SVN",
+            "CHE"
+        ]
+    },
+    {
+        "key": "AUS",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "ABW",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "ALA",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "AZE",
+        "value": [
+            "ARM",
+            "GEO",
+            "IRN",
+            "RUS",
+            "TUR"
+        ]
+    },
+    {
+        "key": "BIH",
+        "value": [
+            "HRV",
+            "MNE",
+            "SRB"
+        ]
+    },
+    {
+        "key": "BRB",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "BGD",
+        "value": [
+            "IND",
+            "MMR"
+        ]
+    },
+    {
+        "key": "BEL",
+        "value": [
+            "FRA",
+            "DEU",
+            "LUX",
+            "NLD"
+        ]
+    },
+    {
+        "key": "BFA",
+        "value": [
+            "BEN",
+            "CIV",
+            "GHA",
+            "MLI",
+            "NER",
+            "TGO"
+        ]
+    },
+    {
+        "key": "BGR",
+        "value": [
+            "GRC",
+            "MKD",
+            "ROU",
+            "SRB",
+            "TUR"
+        ]
+    },
+    {
+        "key": "BHR",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "BDI",
+        "value": [
+            "COD",
+            "RWA",
+            "TZA"
+        ]
+    },
+    {
+        "key": "BEN",
+        "value": [
+            "BFA",
+            "NER",
+            "NGA",
+            "TGO"
+        ]
+    },
+    {
+        "key": "BLM",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "BMU",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "BRN",
+        "value": [
+            "MYS"
+        ]
+    },
+    {
+        "key": "BOL",
+        "value": [
+            "ARG",
+            "BRA",
+            "CHL",
+            "PRY",
+            "PER"
+        ]
+    },
+    {
+        "value": [
+            null,
+            null,
+            "CAF",
+            "COD",
+            "ETH",
+            "KEN",
+            "SDN",
+            "UGA",
+            "MAF"
+        ]
+    },
+    {
+        "key": "BRA",
+        "value": [
+            "ARG",
+            "BOL",
+            "COL",
+            "GUF",
+            "GUY",
+            "PRY",
+            "PER",
+            "SUR",
+            "URY",
+            "VEN"
+        ]
+    },
+    {
+        "key": "BHS",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "BTN",
+        "value": [
+            "CHN",
+            "IND"
+        ]
+    },
+    {
+        "key": "BVT",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "BWA",
+        "value": [
+            "NAM",
+            "ZAF",
+            "ZMB",
+            "ZWE"
+        ]
+    },
+    {
+        "key": "BLR",
+        "value": [
+            "LVA",
+            "LTU",
+            "POL",
+            "RUS",
+            "UKR"
+        ]
+    },
+    {
+        "key": "BLZ",
+        "value": [
+            "GTM",
+            "MEX"
+        ]
+    },
+    {
+        "key": "CAN",
+        "value": [
+            "USA"
+        ]
+    },
+    {
+        "key": "CCK",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "COD",
+        "value": [
+            "AGO",
+            "BDI",
+            "CAF",
+            "COG",
+            "RWA",
+            null,
+            "TZA",
+            "UGA",
+            "ZMB"
+        ]
+    },
+    {
+        "key": "CAF",
+        "value": [
+            "CMR",
+            "TCD",
+            "COG",
+            "COD",
+            null,
+            "SDN"
+        ]
+    },
+    {
+        "key": "COG",
+        "value": [
+            "AGO",
+            "CMR",
+            "CAF",
+            "COD",
+            "GAB"
+        ]
+    },
+    {
+        "key": "CHE",
+        "value": [
+            "AUT",
+            "FRA",
+            "DEU",
+            "ITA",
+            "LIE"
+        ]
+    },
+    {
+        "key": "CIV",
+        "value": [
+            "BFA",
+            "GHA",
+            "GIN",
+            "LBR",
+            "MLI"
+        ]
+    },
+    {
+        "key": "COK",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "CHL",
+        "value": [
+            "ARG",
+            "BOL",
+            "PER"
+        ]
+    },
+    {
+        "key": "CMR",
+        "value": [
+            "CAF",
+            "TCD",
+            "COG",
+            "GNQ",
+            "GAB",
+            "NGA"
+        ]
+    },
+    {
+        "key": "CHN",
+        "value": [
+            "AFG",
+            "BTN",
+            "HKG",
+            "IND",
+            "KAZ",
+            "PRK",
+            "KGZ",
+            "LAO",
+            "MAC",
+            "MNG",
+            "MMR",
+            "NPL",
+            "PAK",
+            "RUS",
+            "TJK",
+            "VNM"
+        ]
+    },
+    {
+        "key": "COL",
+        "value": [
+            "BRA",
+            "ECU",
+            "PAN",
+            "PER",
+            "VEN"
+        ]
+    },
+    {
+        "key": "CRI",
+        "value": [
+            "NIC",
+            "PAN"
+        ]
+    },
+    {
+        "key": "CUB",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "CPV",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "CXR",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "CYP",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "CZE",
+        "value": [
+            "AUT",
+            "DEU",
+            "POL",
+            "SVK"
+        ]
+    },
+    {
+        "key": "DEU",
+        "value": [
+            "AUT",
+            "BEL",
+            "CZE",
+            "DNK",
+            "FRA",
+            "LUX",
+            "NLD",
+            "POL",
+            "CHE"
+        ]
+    },
+    {
+        "key": "DJI",
+        "value": [
+            "ERI",
+            "ETH",
+            "SOM"
+        ]
+    },
+    {
+        "key": "DNK",
+        "value": [
+            "DEU"
+        ]
+    },
+    {
+        "key": "DMA",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "DOM",
+        "value": [
+            "HTI"
+        ]
+    },
+    {
+        "key": "DZA",
+        "value": [
+            "LBY",
+            "MLI",
+            "MRT",
+            "MAR",
+            "NER",
+            "TUN",
+            "ESH"
+        ]
+    },
+    {
+        "key": "ECU",
+        "value": [
+            "COL",
+            "PER"
+        ]
+    },
+    {
+        "key": "EST",
+        "value": [
+            "LVA",
+            "RUS"
+        ]
+    },
+    {
+        "key": "EGY",
+        "value": [
+            "ISR",
+            "LBY",
+            "PSE",
+            "SDN"
+        ]
+    },
+    {
+        "key": "ESH",
+        "value": [
+            "DZA",
+            "MRT",
+            "MAR"
+        ]
+    },
+    {
+        "key": "ERI",
+        "value": [
+            "DJI",
+            "ETH",
+            "SDN"
+        ]
+    },
+    {
+        "key": "ESP",
+        "value": [
+            "AND",
+            "FRA",
+            "GIB",
+            "MAR",
+            "PRT"
+        ]
+    },
+    {
+        "key": "ETH",
+        "value": [
+            "DJI",
+            "ERI",
+            "KEN",
+            "SOM",
+            null,
+            "SDN"
+        ]
+    },
+    {
+        "key": "FIN",
+        "value": [
+            "NOR",
+            "RUS",
+            "SWE"
+        ]
+    },
+    {
+        "key": "FJI",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "FLK",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "FSM",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "FRO",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "FRA",
+        "value": [
+            "AND",
+            "BEL",
+            "DEU",
+            "ITA",
+            "LUX",
+            "MCO",
+            "ESP",
+            "CHE"
+        ]
+    },
+    {
+        "key": "GAB",
+        "value": [
+            "CMR",
+            "COG",
+            "GNQ"
+        ]
+    },
+    {
+        "key": "GBR",
+        "value": [
+            "IRL"
+        ]
+    },
+    {
+        "key": "GRD",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "GEO",
+        "value": [
+            "ARM",
+            "AZE",
+            "RUS",
+            "TUR"
+        ]
+    },
+    {
+        "key": "GUF",
+        "value": [
+            "BRA",
+            "SUR"
+        ]
+    },
+    {
+        "key": "GGY",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "GHA",
+        "value": [
+            "BFA",
+            "CIV",
+            "TGO"
+        ]
+    },
+    {
+        "key": "GIB",
+        "value": [
+            "ESP"
+        ]
+    },
+    {
+        "key": "GRL",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "GMB",
+        "value": [
+            "SEN"
+        ]
+    },
+    {
+        "key": "GIN",
+        "value": [
+            "CIV",
+            "GNB",
+            "LBR",
+            "MLI",
+            "SEN",
+            "SLE"
+        ]
+    },
+    {
+        "key": "GLP",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "GNQ",
+        "value": [
+            "CMR",
+            "GAB"
+        ]
+    },
+    {
+        "key": "GRC",
+        "value": [
+            "ALB",
+            "BGR",
+            "MKD",
+            "TUR"
+        ]
+    },
+    {
+        "key": "SGS",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "GTM",
+        "value": [
+            "BLZ",
+            "SLV",
+            "HND",
+            "MEX"
+        ]
+    },
+    {
+        "key": "GUM",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "GNB",
+        "value": [
+            "GIN",
+            "SEN"
+        ]
+    },
+    {
+        "key": "GUY",
+        "value": [
+            "BRA",
+            "SUR",
+            "VEN"
+        ]
+    },
+    {
+        "key": "HKG",
+        "value": [
+            "CHN"
+        ]
+    },
+    {
+        "key": "HMD",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "HND",
+        "value": [
+            "SLV",
+            "GTM",
+            "NIC"
+        ]
+    },
+    {
+        "key": "HRV",
+        "value": [
+            "BIH",
+            "HUN",
+            "MNE",
+            "SRB",
+            "SVN"
+        ]
+    },
+    {
+        "key": "HTI",
+        "value": [
+            "DOM"
+        ]
+    },
+    {
+        "key": "HUN",
+        "value": [
+            "AUT",
+            "HRV",
+            "ROU",
+            "SRB",
+            "SVK",
+            "SVN",
+            "UKR"
+        ]
+    },
+    {
+        "key": "IDN",
+        "value": [
+            "MYS",
+            "PNG",
+            "TLS"
+        ]
+    },
+    {
+        "key": "IRL",
+        "value": [
+            "GBR"
+        ]
+    },
+    {
+        "key": "ISR",
+        "value": [
+            "EGY",
+            "JOR",
+            "LBN",
+            "PSE",
+            "SYR"
+        ]
+    },
+    {
+        "key": "IMN",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "IND",
+        "value": [
+            "BGD",
+            "BTN",
+            "CHN",
+            "MMR",
+            "NPL",
+            "PAK"
+        ]
+    },
+    {
+        "key": "IOT",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "IRQ",
+        "value": [
+            "IRN",
+            "JOR",
+            "KWT",
+            "SAU",
+            "SYR",
+            "TUR"
+        ]
+    },
+    {
+        "key": "IRN",
+        "value": [
+            "AFG",
+            "ARM",
+            "AZE",
+            "IRQ",
+            "PAK",
+            "TUR",
+            "TKM"
+        ]
+    },
+    {
+        "key": "ISL",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "ITA",
+        "value": [
+            "AUT",
+            "FRA",
+            "SMR",
+            "SVN",
+            "CHE",
+            "VAT"
+        ]
+    },
+    {
+        "key": "JEY",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "JAM",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "JOR",
+        "value": [
+            "IRQ",
+            "ISR",
+            "PSE",
+            "SAU",
+            "SYR"
+        ]
+    },
+    {
+        "key": "JPN",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "KEN",
+        "value": [
+            "ETH",
+            "SOM",
+            null,
+            "TZA",
+            "UGA"
+        ]
+    },
+    {
+        "key": "KGZ",
+        "value": [
+            "CHN",
+            "KAZ",
+            "TJK",
+            "UZB"
+        ]
+    },
+    {
+        "key": "KHM",
+        "value": [
+            "LAO",
+            "THA",
+            "VNM"
+        ]
+    },
+    {
+        "key": "KIR",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "COM",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "KNA",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "PRK",
+        "value": [
+            "CHN",
+            "KOR",
+            "RUS"
+        ]
+    },
+    {
+        "key": "KOR",
+        "value": [
+            "PRK"
+        ]
+    },
+    {
+        "key": "KWT",
+        "value": [
+            "IRQ",
+            "SAU"
+        ]
+    },
+    {
+        "key": "CYM",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "KAZ",
+        "value": [
+            "CHN",
+            "KGZ",
+            "RUS",
+            "TKM",
+            "UZB"
+        ]
+    },
+    {
+        "key": "LAO",
+        "value": [
+            "CHN",
+            "KHM",
+            "MMR",
+            "THA",
+            "VNM"
+        ]
+    },
+    {
+        "key": "LBN",
+        "value": [
+            "ISR",
+            "SYR"
+        ]
+    },
+    {
+        "key": "LCA",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "LIE",
+        "value": [
+            "AUT",
+            "CHE"
+        ]
+    },
+    {
+        "key": "LKA",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "LBR",
+        "value": [
+            "CIV",
+            "GIN",
+            "SLE"
+        ]
+    },
+    {
+        "key": "LSO",
+        "value": [
+            "ZAF"
+        ]
+    },
+    {
+        "key": "LTU",
+        "value": [
+            "BLR",
+            "LVA",
+            "POL",
+            "RUS"
+        ]
+    },
+    {
+        "key": "LUX",
+        "value": [
+            "BEL",
+            "DEU",
+            "FRA"
+        ]
+    },
+    {
+        "key": "LVA",
+        "value": [
+            "BLR",
+            "EST",
+            "LTU",
+            "RUS"
+        ]
+    },
+    {
+        "key": "LBY",
+        "value": [
+            "DZA",
+            "TCD",
+            "EGY",
+            "NER",
+            "SDN",
+            "TUN"
+        ]
+    },
+    {
+        "key": "MAR",
+        "value": [
+            "DZA",
+            "ESP",
+            "ESH"
+        ]
+    },
+    {
+        "key": "MCO",
+        "value": [
+            "FRA"
+        ]
+    },
+    {
+        "key": "MDA",
+        "value": [
+            "ROU",
+            "UKR"
+        ]
+    },
+    {
+        "key": "MNE",
+        "value": [
+            "ALB",
+            "BIH",
+            "HRV",
+            "SRB"
+        ]
+    },
+    {
+        "key": "MAF",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "MDG",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "MHL",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "MKD",
+        "value": [
+            "ALB",
+            "BGR",
+            "GRC",
+            "SRB"
+        ]
+    },
+    {
+        "key": "MLI",
+        "value": [
+            "DZA",
+            "BFA",
+            "CIV",
+            "GIN",
+            "MRT",
+            "NER",
+            "SEN"
+        ]
+    },
+    {
+        "key": "MMR",
+        "value": [
+            "BGD",
+            "CHN",
+            "IND",
+            "LAO",
+            "THA"
+        ]
+    },
+    {
+        "key": "MNG",
+        "value": [
+            "CHN",
+            "RUS"
+        ]
+    },
+    {
+        "key": "MAC",
+        "value": [
+            "CHN"
+        ]
+    },
+    {
+        "key": "MNP",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "MTQ",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "MRT",
+        "value": [
+            "DZA",
+            "MLI",
+            "SEN",
+            "ESH"
+        ]
+    },
+    {
+        "key": "MSR",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "MLT",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "MUS",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "MDV",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "MWI",
+        "value": [
+            "MOZ",
+            "TZA",
+            "ZMB"
+        ]
+    },
+    {
+        "key": "MEX",
+        "value": [
+            "BLZ",
+            "GTM",
+            "USA"
+        ]
+    },
+    {
+        "key": "MYS",
+        "value": [
+            "BRN",
+            "IDN",
+            "THA"
+        ]
+    },
+    {
+        "key": "MOZ",
+        "value": [
+            "MWI",
+            "SWZ",
+            "ZAF",
+            "TZA",
+            "ZMB",
+            "ZWE"
+        ]
+    },
+    {
+        "key": "NAM",
+        "value": [
+            "AGO",
+            "BWA",
+            "ZAF",
+            "ZMB"
+        ]
+    },
+    {
+        "key": "NCL",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "NER",
+        "value": [
+            "DZA",
+            "BEN",
+            "BFA",
+            "TCD",
+            "LBY",
+            "MLI",
+            "NGA"
+        ]
+    },
+    {
+        "key": "NFK",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "NGA",
+        "value": [
+            "BEN",
+            "CMR",
+            "TCD",
+            "NER"
+        ]
+    },
+    {
+        "key": "NIC",
+        "value": [
+            "CRI",
+            "HND"
+        ]
+    },
+    {
+        "key": "NLD",
+        "value": [
+            "BEL",
+            "DEU"
+        ]
+    },
+    {
+        "key": "NOR",
+        "value": [
+            "FIN",
+            "RUS",
+            "SWE"
+        ]
+    },
+    {
+        "key": "NPL",
+        "value": [
+            "CHN",
+            "IND"
+        ]
+    },
+    {
+        "key": "NRU",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "NIU",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "NZL",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "OMN",
+        "value": [
+            "ARE",
+            "SAU",
+            "YEM"
+        ]
+    },
+    {
+        "key": "PAN",
+        "value": [
+            "COL",
+            "CRI"
+        ]
+    },
+    {
+        "key": "PER",
+        "value": [
+            "BOL",
+            "BRA",
+            "CHL",
+            "COL",
+            "ECU"
+        ]
+    },
+    {
+        "key": "PYF",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "PNG",
+        "value": [
+            "IDN"
+        ]
+    },
+    {
+        "key": "PHL",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "PAK",
+        "value": [
+            "AFG",
+            "CHN",
+            "IND",
+            "IRN"
+        ]
+    },
+    {
+        "key": "POL",
+        "value": [
+            "BLR",
+            "CZE",
+            "DEU",
+            "LTU",
+            "RUS",
+            "SVK",
+            "UKR"
+        ]
+    },
+    {
+        "key": "SPM",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "PCN",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "PRI",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "PSE",
+        "value": [
+            "EGY",
+            "ISR",
+            "JOR"
+        ]
+    },
+    {
+        "key": "PRT",
+        "value": [
+            "ESP"
+        ]
+    },
+    {
+        "key": "PLW",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "PRY",
+        "value": [
+            "ARG",
+            "BOL",
+            "BRA"
+        ]
+    },
+    {
+        "key": "QAT",
+        "value": [
+            "SAU"
+        ]
+    },
+    {
+        "key": "REU",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "ROU",
+        "value": [
+            "BGR",
+            "HUN",
+            "MDA",
+            "SRB",
+            "UKR"
+        ]
+    },
+    {
+        "key": "SRB",
+        "value": [
+            "ALB",
+            "BIH",
+            "BGR",
+            "HRV",
+            "HUN",
+            "MNE",
+            "MKD",
+            "ROU"
+        ]
+    },
+    {
+        "key": "RUS",
+        "value": [
+            "AZE",
+            "BLR",
+            "CHN",
+            "EST",
+            "FIN",
+            "GEO",
+            "KAZ",
+            "PRK",
+            "LVA",
+            "LTU",
+            "MNG",
+            "NOR",
+            "POL",
+            "UKR"
+        ]
+    },
+    {
+        "key": "RWA",
+        "value": [
+            "BDI",
+            "COD",
+            "TZA",
+            "UGA"
+        ]
+    },
+    {
+        "key": "SAU",
+        "value": [
+            "IRQ",
+            "JOR",
+            "KWT",
+            "OMN",
+            "QAT",
+            "ARE",
+            "YEM"
+        ]
+    },
+    {
+        "key": "SLB",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "SYC",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "SDN",
+        "value": [
+            "CAF",
+            "TCD",
+            "EGY",
+            "ETH",
+            "ERI",
+            "LBY",
+            null
+        ]
+    },
+    {
+        "key": "SWE",
+        "value": [
+            "FIN",
+            "NOR"
+        ]
+    },
+    {
+        "key": "SGP",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "SHN",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "SVN",
+        "value": [
+            "AUT",
+            "HRV",
+            "HUN",
+            "ITA"
+        ]
+    },
+    {
+        "key": "SJM",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "SVK",
+        "value": [
+            "AUT",
+            "CZE",
+            "HUN",
+            "POL",
+            "UKR"
+        ]
+    },
+    {
+        "key": "SLE",
+        "value": [
+            "GIN",
+            "LBR"
+        ]
+    },
+    {
+        "key": "SMR",
+        "value": [
+            "ITA"
+        ]
+    },
+    {
+        "key": "SEN",
+        "value": [
+            "GMB",
+            "GIN",
+            "GNB",
+            "MLI",
+            "MRT"
+        ]
+    },
+    {
+        "key": "SOM",
+        "value": [
+            "DJI",
+            "ETH",
+            "KEN"
+        ]
+    },
+    {
+        "key": "SUR",
+        "value": [
+            "BRA",
+            "GUF",
+            "GUY"
+        ]
+    },
+    {
+        "key": "STP",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "SLV",
+        "value": [
+            "GTM",
+            "HND"
+        ]
+    },
+    {
+        "key": "SYR",
+        "value": [
+            "IRQ",
+            "ISR",
+            "JOR",
+            "LBN",
+            "TUR"
+        ]
+    },
+    {
+        "key": "SWZ",
+        "value": [
+            "MOZ",
+            "ZAF"
+        ]
+    },
+    {
+        "key": "TCA",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "TCD",
+        "value": [
+            "CMR",
+            "CAF",
+            "LBY",
+            "NER",
+            "NGA",
+            "SDN"
+        ]
+    },
+    {
+        "key": "ATF",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "TGO",
+        "value": [
+            "BEN",
+            "BFA",
+            "GHA"
+        ]
+    },
+    {
+        "key": "THA",
+        "value": [
+            "KHM",
+            "LAO",
+            "MYS",
+            "MMR"
+        ]
+    },
+    {
+        "key": "TJK",
+        "value": [
+            "AFG",
+            "CHN",
+            "KGZ",
+            "UZB"
+        ]
+    },
+    {
+        "key": "TKL",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "TLS",
+        "value": [
+            "IDN"
+        ]
+    },
+    {
+        "key": "TKM",
+        "value": [
+            "AFG",
+            "IRN",
+            "KAZ",
+            "UZB"
+        ]
+    },
+    {
+        "key": "TUN",
+        "value": [
+            "DZA",
+            "LBY"
+        ]
+    },
+    {
+        "key": "TON",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "TUR",
+        "value": [
+            "ARM",
+            "AZE",
+            "BGR",
+            "GEO",
+            "GRC",
+            "IRN",
+            "IRQ",
+            "SYR"
+        ]
+    },
+    {
+        "key": "TTO",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "TUV",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "TWN",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "TZA",
+        "value": [
+            "BDI",
+            "COD",
+            "KEN",
+            "MWI",
+            "MOZ",
+            "RWA",
+            "UGA",
+            "ZMB"
+        ]
+    },
+    {
+        "key": "UKR",
+        "value": [
+            "BLR",
+            "HUN",
+            "MDA",
+            "POL",
+            "ROU",
+            "RUS",
+            "SVK"
+        ]
+    },
+    {
+        "key": "UGA",
+        "value": [
+            "COD",
+            "KEN",
+            "RWA",
+            null,
+            "TZA"
+        ]
+    },
+    {
+        "key": "UMI",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "USA",
+        "value": [
+            "CAN",
+            "MEX"
+        ]
+    },
+    {
+        "key": "URY",
+        "value": [
+            "ARG",
+            "BRA"
+        ]
+    },
+    {
+        "key": "UZB",
+        "value": [
+            "AFG",
+            "KAZ",
+            "KGZ",
+            "TJK",
+            "TKM"
+        ]
+    },
+    {
+        "key": "VAT",
+        "value": [
+            "ITA"
+        ]
+    },
+    {
+        "key": "VCT",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "VEN",
+        "value": [
+            "BRA",
+            "COL",
+            "GUY"
+        ]
+    },
+    {
+        "key": "VGB",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "VIR",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "VNM",
+        "value": [
+            "KHM",
+            "CHN",
+            "LAO"
+        ]
+    },
+    {
+        "key": "VUT",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "WLF",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "WSM",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "YEM",
+        "value": [
+            "OMN",
+            "SAU"
+        ]
+    },
+    {
+        "key": "MYT",
+        "value": [
+            null
+        ]
+    },
+    {
+        "key": "ZAF",
+        "value": [
+            "BWA",
+            "LSO",
+            "MOZ",
+            "NAM",
+            "SWZ",
+            "ZWE"
+        ]
+    },
+    {
+        "key": "ZMB",
+        "value": [
+            "AGO",
+            "BWA",
+            "COD",
+            "MWI",
+            "MOZ",
+            "NAM",
+            "TZA",
+            "ZWE"
+        ]
+    },
+    {
+        "key": "ZWE",
+        "value": [
+            "BWA",
+            "MOZ",
+            "ZAF",
+            "ZMB"
+        ]
+    }
+]
