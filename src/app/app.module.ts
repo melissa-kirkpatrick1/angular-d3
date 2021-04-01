@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 import {DialogModule} from 'primeng/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {PackedBubbleChartService} from './services/packed-bubble-chart.service';
-
+import {ButtonModule} from 'primeng/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +26,7 @@ import {PackedBubbleChartService} from './services/packed-bubble-chart.service';
     CheckboxModule,
     DialogModule,
     BrowserAnimationsModule,
+    ButtonModule
   ],
   providers: [PackedBubbleChartService],
   bootstrap: [AppComponent]

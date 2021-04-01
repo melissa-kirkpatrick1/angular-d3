@@ -1,16 +1,28 @@
-<div class="left">
+<div class="left-pane">
   <p-checkbox name="groupname" value="hotel" label="Hotel" [(ngModel)]="selectedValues" (onChange)="updateThreatFilters($event,'hotel')"></p-checkbox>
   <br/>
   <p-checkbox name="groupname" value="airport" label="Airport" [(ngModel)]="selectedValues" (onChange)="updateThreatFilters($event,'airport')"></p-checkbox>
   <div>
-    <a (click)="showDialog()">Click Me</a>
+    <a (click)="showBubbbleChart()">Show Bubble Chart</a>
+  </div>
+  <div>
+    <a (click)="showVectorGraphic()">Show Vector Graphic</a>
   </div>
 </div>
 <div class="right">
   <div class="us-map"></div>
 </div>
 <div class="tooltip"></div>
-<p-dialog [(visible)]="showBubble">
+<p-dialog [(visible)]="showBubble" header="Bubble Chart">
   <div id="chart" class="bubble-chart"></div>
 </p-dialog>
-
+<p-dialog [(visible)]="showVector" header="Vector Graphic" >
+  <div id="pentagon" class="pentagon">
+    <a href='#' class='center'><img src='assets/images/smile.png'></a>
+    <a href='#' class='right'><img src='assets/images/smile.png'></a>
+    <a href='#' class='bottom-right'><img src='assets/images/smile.png'></a>
+    <a href='#' class='bottom-left'><img src='assets/images/smile.png'></a>
+    <a href='#' class='left'><img src='assets/images/smile.png'></a>
+    <a href='#' class='top'><img src='assets/images/smile.png'></a>
+  </div>
+</p-dialog>

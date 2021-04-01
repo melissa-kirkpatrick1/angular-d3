@@ -25,6 +25,8 @@
     "d3-geomap": "^3.3.0",
     "favicons": "^6.2.1",
     "material-icons": "^0.5.4",
+    "primeflex": "^2.0.0",
+    "primeicons": "^4.1.0",
     "primeng": "^11.3.1",
     "react-icons": "^4.2.0",
     "rxjs": "~6.6.0",

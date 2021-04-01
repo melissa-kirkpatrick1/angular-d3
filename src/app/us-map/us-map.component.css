@@ -1,4 +1,4 @@
-.left {
+.left-pane {
   float: left;
   width: 20%;
 }
@@ -33,4 +33,32 @@ div.tooltip {
 .bubble-chart {
   width: 700px;
   height:500px;
+}
+.pentagon {
+  width: 350px;
+  height: 343px;
+  border: 2px solid red;
+  background-image: url("../../assets/images/pentagon.png");
+  position: relative;
+  margin: 1.75em auto 0;
+}
+.pentagon a {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4em;
+  height: 4em;
+  margin: -2em;
+}
+.pentagon img { display: block; width: 100%; }
+.right {  transform: rotate(-12deg) translate(8.75em) rotate(12deg); } /* 12em = half the width of the wrapper */
+.bottom-right { transform: rotate(57deg) translate(9.8em) rotate(-56deg); }
+.bottom-left { transform: rotate(122deg) translate(9.5em) rotate(-122deg); }
+.left {  transform: rotate(192deg) translate(8.5em) rotate(-192deg); }
+.top { transform: rotate(270deg) translate(8em) rotate(-270deg); }
+
+a {
+  text-decoration: underline;
+  cursor: pointer;
 }

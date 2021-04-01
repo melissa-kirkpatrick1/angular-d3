@@ -12,6 +12,7 @@ export class UsMapComponent implements OnInit {
   selectedValues: any[] = [];
   threatTypes: any[] = [];
   showBubble: boolean = false;
+  showVector: boolean = false;
   private hotels: any[] = [];
   private airports: any[] = [];
   private centered;
@@ -275,7 +276,7 @@ export class UsMapComponent implements OnInit {
         .attr("y", 0);
     });
   }
-  showDialog () {
+  showBubbbleChart () {
     const delay = ms => new Promise(res => setTimeout(res, ms));
     const render = async () => {
       this.showBubble = true;
@@ -286,6 +287,7 @@ export class UsMapComponent implements OnInit {
     render();
 
   }
-
-
+  showVectorGraphic () {
+    this.showVector = true;
+  }
 }
