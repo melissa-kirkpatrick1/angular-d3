@@ -16,7 +16,7 @@ export class WorldMapComponent implements OnInit {
     let width = 1100;
     let height = 700;
 
-    let svg = d3.select('body').append('svg')
+    let svg = d3.select('#world-map').append('svg')
       .attr('width', width)
       .attr('height', height);
     let g = svg.append('g');
@@ -26,11 +26,11 @@ export class WorldMapComponent implements OnInit {
     let color = d3.scaleSequential(d =>
       d3.interpolateBlues(scale(d))
     );
-
+    let path, projection;
     d3.json("assets/maps/countries.json")
       .then(function (topology : any) {
-        let projection = d3.geoMercator().fitSize([width,height],t.feature(topology, topology.objects.units));
-        let path = d3.geoPath().projection(projection);
+        projection = d3.geoAzimuthalEquidistant().fitSize([width,height],t.feature(topology, topology.objects.units));
+        path = d3.geoPath().projection(projection);
         // <---- Renamed it from data to topology
         console.log("------>", topology.feature);
         g.selectAll('path')
@@ -60,8 +60,19 @@ export class WorldMapComponent implements OnInit {
             })
             .attr("r", 5)
             .style("fill", "red");
-        });
 
+          // let origin = [-122.4196396,37.7771187];
+          let origin = [-74.007124,40.71455];
+          let destination = [105.3188,61.5240];
+
+          g.append("path")
+            .datum({type: "LineString", coordinates: [ destination, origin]})
+            .attr("class", "route")
+            .attr("d", path)
+            .attr('stroke', 'red')
+            .attr("fill", "none")
+            .attr("stroke-width", "3")
+        });
       });
   }
 
