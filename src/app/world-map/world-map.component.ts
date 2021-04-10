@@ -29,7 +29,9 @@ export class WorldMapComponent implements OnInit {
     let path, projection;
     d3.json("assets/maps/countries.json")
       .then(function (topology : any) {
-        projection = d3.geoAzimuthalEquidistant().fitSize([width,height],t.feature(topology, topology.objects.units));
+
+        projection = d3.geoMercator();
+
         path = d3.geoPath().projection(projection);
         // <---- Renamed it from data to topology
         console.log("------>", topology.feature);
@@ -38,8 +40,9 @@ export class WorldMapComponent implements OnInit {
           .enter()
           .append('path')
           .attr('d', path)
+          .attr("stroke", "#6cb0e0")
           .attr("fill", function (d ) {
-            return "lightgrey"
+            return "#c2dabe";
           });
         console.log("ending json calling1");
 
@@ -59,21 +62,35 @@ export class WorldMapComponent implements OnInit {
               return projection([d.lon, d.lat])[1];
             })
             .attr("r", 5)
-            .style("fill", "red");
+            .style("fill", "blue");
+          
 
-          // let origin = [-122.4196396,37.7771187];
-          let origin = [-74.007124,40.71455];
-          let destination = [105.3188,61.5240];
+          let origin = [1.7191036,46.71109];
+          let destination = [-7.992047,31.628674];
+
+          var link = {type: "LineString", coordinates: [origin, destination]} // Change these data to see ho the great circle reacts
 
           g.append("path")
-            .datum({type: "LineString", coordinates: [ destination, origin]})
+            // .datum({type: "LineString", coordinates: [ destination, origin]})
             .attr("class", "route")
-            .attr("d", path)
-            .attr('stroke', 'red')
+            .attr("d",  path(link))
+            .attr('stroke', 'blue')
             .attr("fill", "none")
-            .attr("stroke-width", "3")
+            .attr("stroke-width", "2")
+            .style("cursor", "pointer")
         });
       });
+    d3.csv("assets/data/GlobalAirportDatabase.csv").then(function(data: any) {
+      let franceAirports = [];
+      let franceStr = "";
+      data.forEach(item => {
+        if (item["country"] == "FRANCE" && item["lat"] != "0.000") {
+          franceAirports.push(item);
+          franceStr = franceStr + item["code"]+","+item["name"]+","+item["location"]+","+item["lat"]+","+item["lon"]+"\n";
+        }
+      })
+      console.log(franceAirports);
+    });
   }
 
 }

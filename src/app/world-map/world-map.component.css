@@ -1,4 +1,9 @@
+.world {
+  background: #abd2ed;
+  width: 100%;
+}
 .route {
-  fill: none;
-  stroke-width: 0;
+  position:absolute;
+  bottom:0;
+  right:0;
 }
