@@ -34,17 +34,18 @@ export class WorldMapComponent implements OnInit {
 
         path = d3.geoPath().projection(projection);
         // <---- Renamed it from data to topology
-        console.log("------>", topology.feature);
         g.selectAll('path')
           .data(t.feature(topology, topology.objects.units).features)
           .enter()
           .append('path')
           .attr('d', path)
           .attr("stroke", "#6cb0e0")
-          .attr("fill", function (d ) {
+          .attr("fill", function (d : any ) {
+            if (d.properties.iso3 == "FRA") {
+              return "orange"
+            }
             return "#c2dabe";
           });
-        console.log("ending json calling1");
 
         d3.csv("assets/maps/cities.csv").then(function(data: any) {
           g.selectAll("circle")
@@ -63,21 +64,7 @@ export class WorldMapComponent implements OnInit {
             })
             .attr("r", 5)
             .style("fill", "blue");
-          
 
-          let origin = [1.7191036,46.71109];
-          let destination = [-7.992047,31.628674];
-
-          var link = {type: "LineString", coordinates: [origin, destination]} // Change these data to see ho the great circle reacts
-
-          g.append("path")
-            // .datum({type: "LineString", coordinates: [ destination, origin]})
-            .attr("class", "route")
-            .attr("d",  path(link))
-            .attr('stroke', 'blue')
-            .attr("fill", "none")
-            .attr("stroke-width", "2")
-            .style("cursor", "pointer")
         });
       });
     d3.csv("assets/data/GlobalAirportDatabase.csv").then(function(data: any) {
@@ -89,8 +76,15 @@ export class WorldMapComponent implements OnInit {
           franceStr = franceStr + item["code"]+","+item["name"]+","+item["location"]+","+item["lat"]+","+item["lon"]+"\n";
         }
       })
-      console.log(franceAirports);
     });
+    const zoom = d3.zoom()
+      .on('zoom', (event) => {
+        g.attr('transform', event.transform);
+      })
+      .scaleExtent([1, 40]);
+
+    g.call(zoom);
   }
+
 
 }

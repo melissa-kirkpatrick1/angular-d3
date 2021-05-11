@@ -77,8 +77,8 @@ export class UsMapComponent implements OnInit {
       .then(function (topology:any) {
         let list = [];
         topology.objects.units.geometries.forEach(data => {
-          if (data.properties.iso3 == "MAR" ||
-            borderMap.get("MAR").indexOf(data.properties.iso3) >= 0) {
+          if (data.properties.iso3 == "FRA" ||
+            borderMap.get("FRA").indexOf(data.properties.iso3) >= 0) {
             list.push(data);
           }
         });
@@ -90,17 +90,17 @@ export class UsMapComponent implements OnInit {
           .append('path')
           .attr('d', path)
           .attr("class", function (d : any) {
-            if (d.properties.iso3 == "MAR") {
+            if (d.properties.iso3 == "FRA") {
               return "selectedCountry"
             } else {
               return "";
             }
           })
           .attr("fill", function (d : any) {
-            if (d.properties.iso3 == "MAR") {
+            if (d.properties.iso3 == "FRA") {
               that.zoomTo(d, path, g, width, height);
             }
-            if (d.properties.iso3 == "MAR") {
+            if (d.properties.iso3 == "FRA") {
               return "rgb(254,218,203)";
             } else {
               return "lightgrey";
@@ -108,7 +108,7 @@ export class UsMapComponent implements OnInit {
 
           })
           .attr("opacity", function (d : any) {
-            if (d.properties.iso3 == "MAR") {
+            if (d.properties.iso3 == "FRA") {
               return "1";
             } else {
               return ".3";
@@ -121,16 +121,29 @@ export class UsMapComponent implements OnInit {
 
 
       });
-    d3.json("assets/maps/MAR.json")
-      .then(function (states :any) {
-        // g.append("g")
-          // .attr("class", "boundary state hidden")
-          g.selectAll("boundary")
-          .data(t.feature(states, states.objects.units).features)
-          .enter().append("path")
-          .attr("fill","red")
-          .attr("d", path);
-      });
+    d3.json("assets/data/france-roads.geojson") .then(function (streets :any) {
+      // "namn1": "Autoroute du Soleil
+      console.log("STREETS",streets);
+      g.selectAll('path')
+        // data() expects an Array, so make sure to pass the features entry of our FeatureCollection
+        .data(streets.features)
+        // select all data items that are not represented on the map yet, and add them
+        .enter()
+        .append('path')
+        // assign attributes to those new elements
+        .attr('d', path)
+        .attr('fill', 'none')
+        .attr('stroke', function(d: any) {
+          if (d.properties.namn1 == "Autoroute du Soleil") {
+            return '#999999';
+          } else {
+            return 'none';
+          }
+        })
+        .attr('stroke-width', '0.5')
+    });
+
+
   }
 
   zoomTo(d, path, g, width, height) {
@@ -139,12 +152,12 @@ export class UsMapComponent implements OnInit {
     var centroid = path.centroid(d);
     x = centroid[0];
     y = centroid[1];
-    k = 7;
+    k = 10;
     g.selectAll("path")
       .classed("active", this.centered && function(d) { return d === this.centered; });
     g.transition()
       .duration(750)
-      .attr("transform", "translate(" + width / 2 + "," + height / 3 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
       .style("stroke-width", 1.5 / k + "px");
   }
 
