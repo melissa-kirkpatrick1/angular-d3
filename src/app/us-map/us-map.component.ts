@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import * as t from 'topojson';
 import {PackedBubbleChartService} from '../services/packed-bubble-chart.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-us-map',
@@ -13,6 +14,9 @@ export class UsMapComponent implements OnInit {
   threatTypes: any[] = [];
   showBubble: boolean = false;
   showVector: boolean = false;
+  path: any = {};
+  g: any = {};
+
   private hotels: any[] = [];
   private airports: any[] = [];
   private centered;
@@ -27,11 +31,11 @@ export class UsMapComponent implements OnInit {
     let svg = d3.select('div.us-map').append('svg')
       .attr('width', width)
       .attr('height', height);
-    let path = d3.geoPath()
+    this.path = d3.geoPath()
       .projection(projection);
-    let g = svg.append('g');
-    this.loadIconsForMap(g);
-    g.attr('class', 'map');
+    this.g = svg.append('g');
+    this.loadIconsForMap(this.g);
+    this.g.attr('class', 'map');
 
     let tooltipDiv = d3.select("div.tooltip")
       .attr("class", "tooltip")
@@ -61,7 +65,6 @@ export class UsMapComponent implements OnInit {
             map.get(mappedCodes[border.country_code]).push(mappedCodes[border.country_border_code]);
           });
         });
-        console.log("map",map);
       });
 
 
@@ -70,25 +73,23 @@ export class UsMapComponent implements OnInit {
       borders.forEach(border => {
         borderMap.set(border.key, border.value);
       });
-      console.log("border map",borderMap);
     });
 
     d3.json("assets/maps/countries.json")
       .then(function (topology:any) {
         let list = [];
         topology.objects.units.geometries.forEach(data => {
-          if (data.properties.iso3 == "FRA" ||
-            borderMap.get("FRA").indexOf(data.properties.iso3) >= 0) {
+          // if (data.properties.iso3 == "FRA" ||
+          //   borderMap.get("FRA").indexOf(data.properties.iso3) >= 0) {
             list.push(data);
-          }
+          // }
         });
         topology.objects.units.geometries = list;
-        console.log("LIST",list);
-        g.selectAll('path')
+        that.g.selectAll('path')
           .data(t.feature(topology, topology.objects.units).features)
           .enter()
           .append('path')
-          .attr('d', path)
+          .attr('d', that.path)
           .attr("class", function (d : any) {
             if (d.properties.iso3 == "FRA") {
               return "selectedCountry"
@@ -98,7 +99,7 @@ export class UsMapComponent implements OnInit {
           })
           .attr("fill", function (d : any) {
             if (d.properties.iso3 == "FRA") {
-              that.zoomTo(d, path, g, width, height);
+              that.zoomTo(d, that.path, that.g, width, height);
             }
             if (d.properties.iso3 == "FRA") {
               return "rgb(254,218,203)";
@@ -116,34 +117,43 @@ export class UsMapComponent implements OnInit {
 
           })
           .on("click", function (d, e) {
-            that.zoomTo(e, path, g, width, height);
-          })
+
+        })
 
 
       });
-    d3.json("assets/data/france-roads.geojson") .then(function (streets :any) {
-      // "namn1": "Autoroute du Soleil
-      console.log("STREETS",streets);
-      g.selectAll('path')
-        // data() expects an Array, so make sure to pass the features entry of our FeatureCollection
-        .data(streets.features)
-        // select all data items that are not represented on the map yet, and add them
-        .enter()
-        .append('path')
-        // assign attributes to those new elements
-        .attr('d', path)
-        .attr('fill', 'none')
-        .attr('stroke', function(d: any) {
-          if (d.properties.namn1 == "Autoroute du Soleil") {
-            return '#999999';
-          } else {
-            return 'none';
-          }
-        })
-        .attr('stroke-width', '0.5')
+
+
+    let features = [];
+    d3.json("assets/data/roads/france-roads-all.geojson") .then(function (streets :any) {
+      features = features.concat(streets.features);
     });
 
-
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+    const render = async () => {
+      await delay(800);
+      this.g.selectAll('path')
+          .data(features)
+          .enter()
+          .append('path')
+          .attr('d', that.path)
+          .attr('stroke', function(d: any) {
+            if (d.properties.rtn == "A62" || d.properties.ref == "A62" ||
+              d.properties.rtn == "A61" || d.properties.ref == "A61") {
+              return "red";
+            } else {
+              return "blue";
+            }
+            // return '#999999';
+          })
+          .attr('stroke-width', '.5')
+        .on("click", function (e:any, d:any) {
+          let roadLable = (d.properties.rtn) ? d.properties.rtn : d.properties.ref;
+          console.log(roadLable,projection.invert(d3.pointer(e)));
+          console.log(d);
+        })
+    };
+    render();
   }
 
   zoomTo(d, path, g, width, height) {
@@ -152,7 +162,7 @@ export class UsMapComponent implements OnInit {
     var centroid = path.centroid(d);
     x = centroid[0];
     y = centroid[1];
-    k = 10;
+    k = 8;
     g.selectAll("path")
       .classed("active", this.centered && function(d) { return d === this.centered; });
     g.transition()
@@ -290,14 +300,14 @@ export class UsMapComponent implements OnInit {
     });
   }
   showBubbbleChart () {
-    const delay = ms => new Promise(res => setTimeout(res, ms));
-    const render = async () => {
-      this.showBubble = true;
-      await delay(50);
-      this.packedBubbleChartService.renderChart();
-    };
-
-    render();
+    // const delay = ms => new Promise(res => setTimeout(res, ms));
+    // const render = async () => {
+    //   this.showBubble = true;
+    //   await delay(50);
+    //   this.packedBubbleChartService.renderChart();
+    // };
+    //
+    // render();
 
   }
   showVectorGraphic () {

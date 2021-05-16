@@ -1,0 +1,110 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-ide",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2021-05-15T13:05:58Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/251432694",
+        "highway": "motorway_link",
+        "lanes": "1",
+        "name": "Autoroute de l'Est",
+        "oneway": "yes",
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -6.1050673,
+            33.8182524
+          ],
+          [
+            -6.1053327,
+            33.8182736
+          ],
+          [
+            -6.1056787,
+            33.8183137
+          ],
+          [
+            -6.1060046,
+            33.8183527
+          ],
+          [
+            -6.1063264,
+            33.818395
+          ],
+          [
+            -6.1067623,
+            33.8184931
+          ],
+          [
+            -6.106993,
+            33.8185454
+          ],
+          [
+            -6.1073416,
+            33.8186268
+          ],
+          [
+            -6.1076112,
+            33.8186914
+          ],
+          [
+            -6.1077882,
+            33.8187304
+          ],
+          [
+            -6.1079586,
+            33.8187349
+          ]
+        ]
+      },
+      "id": "way/251432694"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/251432703",
+        "highway": "motorway_link",
+        "lanes": "1",
+        "name": "Autoroute de l'Est",
+        "oneway": "yes",
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -6.1028342,
+            33.8164986
+          ],
+          [
+            -6.1021234,
+            33.8162357
+          ],
+          [
+            -6.1017399,
+            33.8160763
+          ],
+          [
+            -6.1008574,
+            33.8156017
+          ],
+          [
+            -6.1007783,
+            33.8155683
+          ],
+          [
+            -6.1007018,
+            33.8155616
+          ]
+        ]
+      },
+      "id": "way/251432703"
+    }
+  ]
+}
