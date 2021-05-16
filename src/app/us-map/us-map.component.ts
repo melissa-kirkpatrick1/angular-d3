@@ -138,20 +138,36 @@ export class UsMapComponent implements OnInit {
           .append('path')
           .attr('d', that.path)
           .attr('stroke', function(d: any) {
-            if (d.properties.rtn == "A62" || d.properties.ref == "A62" ||
-              d.properties.rtn == "A61" || d.properties.ref == "A61") {
-              return "red";
-            } else {
-              return "blue";
-            }
-            // return '#999999';
+            // if (d.properties.rtn == "A26" || d.properties.ref == "A26") {
+            //   return "red";
+            // } else {
+            //   return "blue";
+            // }
+            return '#999999';
           })
-          .attr('stroke-width', '.5')
+          .attr('stroke-width', '.1')
         .on("click", function (e:any, d:any) {
           let roadLable = (d.properties.rtn) ? d.properties.rtn : d.properties.ref;
           console.log(roadLable,projection.invert(d3.pointer(e)));
           console.log(d);
-        })
+        });
+
+      d3.csv("assets/data/roads/roadLables.csv").then(roads => {
+        this.g.selectAll(".labels")
+          .data(roads)
+          .enter().append("text")
+          .attr("class", "labels")
+          .text(function(d) { return d.label; })
+          .attr("x", function(d) {
+            return (projection([d.lon, d.lat])[0])  ;
+          })
+          .attr("y", function(d) {
+            return (projection([d.lon, d.lat])[1]);
+          })
+          .attr("stroke", "darkgrey")
+          .attr("stroke-width",".002")
+      });
+
     };
     render();
   }

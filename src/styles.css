@@ -22,3 +22,9 @@
   background-color: darkgrey;
   color: white;
 }
+
+.labels {
+  font-size: .05em;
+  font-weight: lighter;
+  color:grey;
+}
