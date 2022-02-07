@@ -122,147 +122,27 @@ export class UsMapComponent implements OnInit {
           });
         that.g.append("path")
           .data([{type: "LineString", coordinates:
-              // [[-5, 40], [-5, 50], [10, 50], [10, 40], [-5, 40]] // points in decimal degrees
-              // [[50.4453884752234, 26.215177328549068], [50.446804681562575,26.20597519452218], [50.628391484805086, 26.09371193874453]]
-              // [
-              //   [50.464303005261435,26.22931502374514],
-              //   [50.44570950772255, 26.21162386292543],
-              //   [50.45472453683231,26.202524504245503],
-              //   [50.44739982568063,26.16915410558064],
-              //   [50.46317612662273,26.126163003777606],
-              //   [50.48289650280034,26.057344328353814],
-              //   [50.455839651527775,25.98023299530631],
-              //   [50.56517032263717,25.80820925872931],
-              //   [50.604111206218356,25.874202028741163],
-              //   [50.62724978705198,26.03904516548248],
-              //   [50.618472057382704,26.127868825227655],
-              //   [50.5657124861355,26.188289398047694],
-              //   [50.65696186163847,26.28150711065638],
-              //   [50.53266186328021,26.243239960800004],
-              //   [50.47086376881154,26.23215378196747],
-              //   [50.455757567941426,26.224762408781427]
-              //   ]
               [[50.441498,26.079486],[50.444990,26.155368],[50.494398,26.240297],[50.565645,26.252673],[50.58600,26.247660],[50.628002,25.943018],[50.610418,25.857704],[50.5840,25.815491],[50.508839,25.868375],[50.459210,25.954651],[50.441498,26.079486]]
           }])
           .attr("d", that.path)
           .attr("fill", "white")
           .attr("opacity", ".3")
           .attr("stroke","red")
-        // let coords = [50.4453884752234, 26.215177328549068], [50.446804681562575,26.20597519452218]
-        //
+          .attr("class", "BHR")
 
-        // 26.1426° N, 50.5653° E
-        // let coords = [{"first_lat": 26.215177328549068, "first_lon":50.4453884752234, "end_lat": 26.20597519452218, "end_lon":50.446804681562575}]
-        // that.g.selectAll('path')
-        //   .data(coords)
-        //   // .enter()
-        //   .append('path')
-        //   .attr('d', function (d) {
-        //     console.log("HERE WITH D", d);
-        //     var coordDepart = [ d.first_lon, d.first_lat ];
-        //     var coordArrivee = [ d.end_lon, d.end_lat ];
-        //     console.log("HERE", coordDepart);
-        //     return that.path({
-        //       type: 'LineString',
-        //       coordinates: [
-        //         coordDepart,
-        //         coordArrivee
-        //       ]
-        //     })
-        //   })
-        //   .attr('stroke', function(d: any) {
-        //     // if (d.properties.rtn == "A26" || d.properties.ref == "A26") {
-        //     //   return "red";
-        //     // } else {
-        //     //   return "blue";
-        //     // }
-        //     return 'red';
-        //   })
-        //   .attr('stroke-width', '50');
-        // ;
-        // d3.json("assets/data/bahrain.geojson") .then(function (streets :any) {
-        //   features = features.concat(streets.features);
-        //   console.log("FEATURES HERE", streets.features);
-        //   that.g.selectAll('path')
-        //     .data(streets.features)
-        //     .enter()
-        //     .append('path')
-        //     .attr('d', that.path)
-        //     .attr('stroke', function(d: any) {
-        //       console.log("IN HERE WITH D", d);
-        //       // if (d.properties.rtn == "A26" || d.properties.ref == "A26") {
-        //       //   return "red";
-        //       // } else {
-        //       //   return "blue";
-        //       // }
-        //       return '#999999';
-        //     })
-        //     .attr('stroke-width', '5')
-        //     .on("click", function (e:any, d:any) {
-        //       let roadLable = (d.properties.rtn) ? d.properties.rtn : d.properties.ref;
-        //       console.log(roadLable,projection.invert(d3.pointer(e)));
-        //       console.log(d);
-        //     });
-        //
-        // });
 
       });
 
-
-    // let features = [];
-    // d3.json("assets/data/roads/france-roads-all.geojson") .then(function (streets :any) {
-    // d3.json("assets/data/bahrain2.geojson") .then(function (streets :any) {
-    //   features = features.concat(streets.features);
-    //   console.log("FEATURES HERE", features);
-    // });
-
-    // const delay = ms => new Promise(res => setTimeout(res, ms));
-    // const render = async () => {
-    //   await delay(800);
-    //   this.g.selectAll('path')
-    //       .data(features)
-    //       .enter()
-    //       .append('path')
-    //       .attr('d', that.path)
-    //       .attr('stroke', function(d: any) {
-    //         console.log("IN HERE WITH D", d);
-    //         // if (d.properties.rtn == "A26" || d.properties.ref == "A26") {
-    //         //   return "red";
-    //         // } else {
-    //         //   return "blue";
-    //         // }
-    //         return '#999999';
-    //       })
-    //       .attr('stroke-width', '5')
-    //     .on("click", function (e:any, d:any) {
-    //       let roadLable = (d.properties.rtn) ? d.properties.rtn : d.properties.ref;
-    //       console.log(roadLable,projection.invert(d3.pointer(e)));
-    //       console.log(d);
-    //     });
-    //
-    //   d3.csv("assets/data/roads/roadLables.csv").then(roads => {
-    //     this.g.selectAll(".labels")
-    //       .data(roads)
-    //       .enter().append("text")
-    //       .attr("class", "labels")
-    //       .text(function(d) { return d.label; })
-    //       .attr("x", function(d) {
-    //         return (projection([d.lon, d.lat])[0])  ;
-    //       })
-    //       .attr("y", function(d) {
-    //         return (projection([d.lon, d.lat])[1]);
-    //       })
-    //       .attr("stroke", "darkgrey")
-    //       .attr("stroke-width",".002")
-    //   });
-    //
-    // };
-    // render();
   }
 
   zoomTo(d, path, g, width, height) {
     // d is the feature to zoomTo
     var x, y, k;
+    //
+    // var element = g.selectAll(".BHR")
+    // console.log("ELEMENT", element);
+    // var centroid = path.centroid(element.datum());
+
     var centroid = path.centroid(d);
     x = centroid[0];
     y = centroid[1];
